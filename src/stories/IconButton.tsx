@@ -15,20 +15,17 @@ const getSizeClasses = (size: string) => {
 };
 
 const getModeClasses = (isPrimary: boolean) =>
-  isPrimary
-    ? 'text-white bg-pink-600 border-pink-600 dark:bg-pink-700 dark:border-pink-700'
-    : 'text-yellow-500 text-slate-700 bg-transparent border-slate-700 dark:text-white dark:border-white';
+  isPrimary ? 'dark:border-white' : 'dark:border-white';
 
-const BASE_BUTTON_CLASSES =
-  'cursor-pointer rounded-full border-2 font-bold leading-none inline-block';
+const BASE_BUTTON_CLASSES = 'cursor-pointer rounded-full border-2 inline-block';
 
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({
+export const IconButton = ({
   primary = false,
   size = 'medium',
-  label = 'Button',
+  icon = 'play',
   ...props
 }) => {
   const computedClasses = useMemo(() => {
@@ -41,10 +38,10 @@ export const Button = ({
   return (
     <button
       type='button'
-      className={`${BASE_BUTTON_CLASSES} ${computedClasses}`}
+      className={`${BASE_BUTTON_CLASSES} ${computedClasses} rounded-full `}
       {...props}
     >
-      {label}
+      {icon}
     </button>
   );
 };
