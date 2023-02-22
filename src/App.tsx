@@ -1,4 +1,3 @@
-import './App.css';
 import { Head1 } from './components/Texts/Head1';
 
 function App() {

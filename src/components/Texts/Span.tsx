@@ -1,3 +1,7 @@
-export const span = ({ text = 'Small text', ...props }) => {
-  return <span {...props}>{text}</span>;
+import { DefaultHead } from '../CommonTypes';
+
+export const Span = ({ className, children }: DefaultHead) => {
+  return (
+    <span className={`${className} font-Kanit font-thin`}>{children}</span>
+  );
 };
