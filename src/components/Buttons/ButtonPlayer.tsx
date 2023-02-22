@@ -2,6 +2,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconName } from '@fortawesome/fontawesome-svg-core';
 import { useMemo } from 'react';
 
+type TypeIconButton = {
+  size: string;
+  icon: IconName;
+  border: boolean;
+};
+
 const getSizeClasses = (size: string): string => {
   switch (size) {
     case 'small':
@@ -16,11 +22,6 @@ const getSizeClasses = (size: string): string => {
 
 const getBorderClass = (border: boolean): string => {
   return border ? 'border-black border-2 dark:border-white' : '';
-};
-type TypeIconButton = {
-  size: string;
-  icon: IconName;
-  border: boolean;
 };
 export const ButtonPlayer = ({
   size,

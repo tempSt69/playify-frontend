@@ -1,5 +1,11 @@
 import { useMemo } from 'react';
 
+type TypeButton = {
+  size: string;
+  primary: boolean;
+  label: string;
+};
+
 const getSizeClasses = (size: string) => {
   switch (size) {
     case 'small':
@@ -19,15 +25,12 @@ const getModeClasses = (isPrimary: boolean) =>
 const BASE_BUTTON_CLASSES =
   'active:scale-90 transition-all duration-100 ease-in-out cursor-pointer rounded-full border-2 font-bold leading-none inline-block';
 
-/**
- * Primary UI component for user interaction
- */
 export const Button = ({
   primary = false,
   size = 'medium',
   label = 'Button',
   ...props
-}) => {
+}: TypeButton) => {
   const computedClasses = useMemo(() => {
     const modeClass = getModeClasses(primary);
     const sizeClass = getSizeClasses(size);
