@@ -10,7 +10,7 @@ export const Player = ({ playing = false, ...props }) => {
       <Cover
         src={'https://angartwork.anghcdn.co/webp/?id=1171884882&size=296'}
       />
-      <ControlsMenu />
+      <ControlsMenu playing={playing} />
     </div>
   );
 };
