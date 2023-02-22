@@ -1,7 +1,6 @@
-import { useMemo } from 'react';
-import { ButtonPlayer } from '../Core/Buttons/ButtonPlayer';
-import { Head3 } from '../Core/Texts/Head3';
-import { Span } from '../Core/Texts/Span';
+import { ButtonPlayer } from '../../Core/Buttons/ButtonPlayer';
+import { Head3 } from '../../Core/Texts/Head3';
+import { Span } from '../../Core/Texts/Span';
 
 export type TypeListItem = {
   _id: string;

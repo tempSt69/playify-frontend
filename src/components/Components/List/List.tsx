@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { TypeListItem, ListItem } from './ListItem';
 
 type List = {

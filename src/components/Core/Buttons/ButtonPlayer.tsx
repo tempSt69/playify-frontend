@@ -6,7 +6,7 @@ import { SimpleIcon } from '../Commons/SimpleIcon';
 type TypeIconButton = {
   size: string;
   icon: IconName;
-  border: boolean;
+  border?: boolean;
   refresh?: boolean;
   switchTheme?: boolean;
   disabled?: boolean;
@@ -35,7 +35,7 @@ const getDisabledClasses = (disabled: boolean): string => {
 export const ButtonPlayer = ({
   size,
   icon,
-  border,
+  border = false,
   refresh = false,
   switchTheme = false,
   disabled = false,
