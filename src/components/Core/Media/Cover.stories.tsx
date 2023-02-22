@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Cover } from './Cover';
 
 export default {
-  title: 'Core/Media/cover',
+  title: 'Core/Media/Cover',
   component: Cover,
 } as ComponentMeta<typeof Cover>;
 
