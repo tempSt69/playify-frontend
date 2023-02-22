@@ -11,6 +11,7 @@ import {
   faForwardStep,
   faShuffle,
   faMagnifyingGlass,
+  faGear,
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -19,7 +20,8 @@ library.add(
   faBackwardStep,
   faForwardStep,
   faShuffle,
-  faMagnifyingGlass
+  faMagnifyingGlass,
+  faGear
 );
 
 export const parameters = {
