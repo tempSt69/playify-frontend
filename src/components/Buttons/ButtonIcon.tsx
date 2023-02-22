@@ -29,6 +29,7 @@ export const ButtonIcon = ({ size, icon, ...props }: TypeIconButton) => {
           'h-3 w-3 px-2 py-2 cursor-pointer bg-transparent inline-block border-2 rounded-full ' +
           'border-black text-black ' +
           'dark:border-white dark:text-white ' +
+          'active:scale-90 active:bg-opacity-30 active:bg-neutral-100 dark:active:bg-neutral-600 dark:active:bg-opacity-30 transition-all duration-100 ease-in-out' +
           computedClasses
         }
         icon={['fas', icon]}
