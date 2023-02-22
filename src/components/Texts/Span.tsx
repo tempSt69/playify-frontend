@@ -1,6 +1,6 @@
-import { DefaultHead } from '../CommonTypes';
+import { DefaultText } from '../CommonTypes';
 
-export const Span = ({ className, children }: DefaultHead) => {
+export const Span = ({ className, children }: DefaultText) => {
   return (
     <span className={`${className} font-Kanit font-thin`}>{children}</span>
   );

@@ -1,6 +1,6 @@
-import { DefaultHead } from '../CommonTypes';
+import { DefaultText } from '../CommonTypes';
 
-export const Head2 = ({ className, children }: DefaultHead) => {
+export const Head2 = ({ className, children }: DefaultText) => {
   return (
     <h2 className={`${className} font-Kanit font-medium text-3xl`}>
       {children}

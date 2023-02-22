@@ -1,4 +1,4 @@
-export type DefaultHead = {
+export type DefaultText = {
   children: string;
   className?: string;
 };
