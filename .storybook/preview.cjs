@@ -10,9 +10,17 @@ import {
   faBackwardStep,
   faForwardStep,
   faShuffle,
+  faMagnifyingGlass,
 } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faPlay, faPause, faBackwardStep, faForwardStep, faShuffle);
+library.add(
+  faPlay,
+  faPause,
+  faBackwardStep,
+  faForwardStep,
+  faShuffle,
+  faMagnifyingGlass
+);
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
