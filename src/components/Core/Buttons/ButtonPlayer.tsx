@@ -1,6 +1,6 @@
 import { IconName } from '@fortawesome/fontawesome-svg-core';
 import { useMemo } from 'react';
-import { getColorClasses } from '../../CommonTypes';
+import { invertThemeHelper } from '../../CommonTypes';
 import { SimpleIcon } from '../Commons/SimpleIcon';
 
 type TypeIconButton = {
@@ -45,7 +45,7 @@ export const ButtonPlayer = ({
     const sizeClass = getSizeClasses(size);
     const borderClass = getBorderClasses(border);
     const disabledClass = getDisabledClasses(disabled);
-    const colorsClass = getColorClasses(switchTheme);
+    const colorsClass = invertThemeHelper(switchTheme);
 
     return [sizeClass, borderClass, disabledClass, colorsClass].join(' ');
   }, [switchTheme, size, border, disabled]);

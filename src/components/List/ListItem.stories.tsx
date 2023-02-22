@@ -12,7 +12,7 @@ const Template: ComponentStory<typeof ListItem> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  text: 'Moto',
+  name: 'Moto',
   duration: '2:00',
   active: false,
 };

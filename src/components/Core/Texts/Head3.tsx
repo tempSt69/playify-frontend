@@ -1,19 +1,19 @@
 import { useMemo } from 'react';
-import { DefaultText, getColorClasses } from '../../CommonTypes';
+import { TypeDefaultText, invertThemeHelper } from '../../CommonTypes';
 
 export const Head3 = ({
   className,
   switchTheme = false,
   children,
-}: DefaultText) => {
+}: TypeDefaultText) => {
   const computedClasses = useMemo(() => {
-    const colorsClass = getColorClasses(switchTheme);
+    const colorsClass = invertThemeHelper(switchTheme);
 
     return [colorsClass].join(' ');
   }, [switchTheme]);
   return (
     <h3
-      className={`${className} ${computedClasses} font-Kanit font-light text-2xl`}
+      className={`${className} ${computedClasses} duration-500 font-Kanit font-light text-2xl`}
     >
       {children}
     </h3>
