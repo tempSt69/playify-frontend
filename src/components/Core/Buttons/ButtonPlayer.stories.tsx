@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ButtonPlayer } from './ButtonPlayer';
 
 export default {
-  title: 'Components/Buttons/Player',
+  title: 'Core/Buttons/Player',
   component: ButtonPlayer,
   argTypes: {
     size: ['large', 'medium', 'small'],

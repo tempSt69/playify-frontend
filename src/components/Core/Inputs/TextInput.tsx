@@ -1,5 +1,3 @@
-import { Component } from 'react';
-
 type TextInput = {
   placeholder?: string;
   icon?: any;

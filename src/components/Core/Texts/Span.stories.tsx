@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Span } from './Span';
 
 export default {
-  title: 'Components/Texts/span',
+  title: 'Core/Texts/span',
   component: Span,
 } as ComponentMeta<typeof Span>;
 

@@ -1,4 +1,4 @@
-import { Head1 } from './components/Texts/Head1';
+import { Head1 } from './components/Core/Texts/Head1';
 
 function App() {
   return (

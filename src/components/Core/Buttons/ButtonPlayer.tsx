@@ -7,7 +7,7 @@ type TypeIconButton = {
   size: string;
   icon: IconName;
   border: boolean;
-  disabled: boolean;
+  disabled?: boolean;
 };
 
 const getSizeClasses = (size: string): string => {

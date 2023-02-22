@@ -1,4 +1,4 @@
-import { DefaultText } from '../CommonTypes';
+import { DefaultText } from '../../CommonTypes';
 
 export const Span = ({ className, children }: DefaultText) => {
   return (

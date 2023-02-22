@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Head3 } from './Head3';
 
 export default {
-  title: 'Components/Texts/h3',
+  title: 'Core/Texts/h3',
   component: Head3,
 } as ComponentMeta<typeof Head3>;
 
