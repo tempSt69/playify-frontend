@@ -10,5 +10,5 @@ export const withTailwindTheme = (Story, context) => {
     htmlTag.setAttribute('data-mode', theme || DEFAULT_THEME);
   }, [theme]);
 
-  return <Story />;
+  return <Story className={theme == 'light' ? 'bg-white' : 'bg-black'} />;
 };

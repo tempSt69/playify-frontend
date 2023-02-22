@@ -1,3 +1,11 @@
 <script>
   window.global = window;
+  setInterval(() => {
+    console.log(window.document.documentElement.getAttribute('data-mode'));
+    if (window.document.documentElement.getAttribute('data-mode') == 'light') {
+      window.document.documentElement.style.background = 'white';
+    } else {
+      window.document.documentElement.style.background = 'black';
+    }
+  }, 2000);
 </script>
