@@ -13,25 +13,30 @@ const getSizeClasses = (size: string): string => {
       return 'h-3 w-3 px-2 py-2';
   }
 };
+
+const getBorderClass = (border: boolean): string => {
+  return border ? 'border-black border-2 dark:border-white' : '';
+};
 type TypeIconButton = {
   size: string;
   icon: IconName;
+  border: boolean;
 };
-export const ButtonIcon = ({ size, icon, ...props }: TypeIconButton) => {
+export const ButtonPlayer = ({
+  size,
+  icon,
+  border,
+  ...props
+}: TypeIconButton) => {
   const computedClasses = useMemo(() => {
     const sizeClass = getSizeClasses(size);
-    return [sizeClass].join(' ');
+    const borderClass = getBorderClass(border);
+    return [sizeClass, borderClass].join(' ');
   }, [size]);
   return (
     <button type='button' {...props}>
       <FontAwesomeIcon
-        className={
-          'h-3 w-3 px-2 py-2 cursor-pointer bg-transparent inline-block border-2 rounded-full ' +
-          'border-black text-black ' +
-          'dark:border-white dark:text-white ' +
-          'active:scale-90 active:bg-opacity-30 active:bg-neutral-100 dark:active:bg-neutral-600 dark:active:bg-opacity-30 transition-all duration-100 ease-in-out' +
-          computedClasses
-        }
+        className={`h-3 w-3 px-2 py-2 cursor-pointer bg-transparent inline-block rounded-full dark:text-white text-black active:scale-90 active:bg-opacity-30 active:bg-neutral-100 dark:active:bg-neutral-600 dark:active:bg-opacity-30 transition-all duration-100 ease-in-out ${computedClasses}`}
         icon={['fas', icon]}
       />
     </button>
