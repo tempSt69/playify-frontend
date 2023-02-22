@@ -13,11 +13,11 @@ const getSizeClasses = (size: string) => {
 
 const getModeClasses = (isPrimary: boolean) =>
   isPrimary
-    ? 'text-white bg-black border-black dark:bg-white dark:text-black dark:border-white'
-    : 'text-black text-slate-700 bg-transparent border-slate-700 dark:text-white dark:border-white';
+    ? 'text-white bg-black border-black dark:bg-white dark:text-black dark:border-white active:bg-opacity-90 active:bg-neutral-900 dark:active:bg-neutral-200'
+    : 'text-black text-black bg-transparent border-black dark:text-white dark:border-white active:bg-neutral-100 dark:active:bg-neutral-600 active:bg-opacity-30';
 
 const BASE_BUTTON_CLASSES =
-  'cursor-pointer rounded-full border-2 font-bold leading-none inline-block';
+  'active:scale-90 transition-all duration-100 ease-in-out cursor-pointer rounded-full border-2 font-bold leading-none inline-block';
 
 /**
  * Primary UI component for user interaction
