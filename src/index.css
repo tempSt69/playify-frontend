@@ -3,6 +3,9 @@
 @tailwind components;
 @tailwind utilities;
 
+body * {
+  @apply transition-colors duration-500 ease-out;
+}
 input[type='range'] {
   --range-progress: 0;
   -webkit-appearance: none;
@@ -64,6 +67,11 @@ input[type='range']:active::-webkit-slider-thumb {
   transform: scale(1.4);
 }
 
+[data-mode='dark'] input[type='range']::-webkit-slider-thumb,
+[data-mode='dark'] input[type='range']::-moz-range-thumb {
+  border: 3px solid #fff;
+  background-color: #000;
+}
 /* slider thumb - firefox */
 input[type='range']::-moz-range-thumb {
   height: 12px;

@@ -9,14 +9,14 @@ export const Main = () => {
   return (
     <div className='h-screen relative'>
       <div
-        className='absolute top-0 left-0 h-screen w-full bg-no-repeat'
+        className='absolute top-0 left-0 h-screen w-full bg-no-repeat dark:bg-slate-900'
         style={{
           backgroundImage: `url(https://i.scdn.co/image/ab67616d0000b273cebeb00e14c98d358152eb90)`,
           backgroundSize: '50% 70%',
           backgroundPosition: 'center',
         }}
       ></div>
-      <div className='absolute top-0 left-0 h-screen w-full backdrop-blur-xl bg-slate-300 bg-opacity-60'>
+      <div className='absolute top-0 left-0 h-screen w-full backdrop-blur-xl dark:bg-slate-900 dark:bg-opacity-80 bg-slate-300 bg-opacity-60'>
         <Header />
         <Container>
           <div className='flex justify-between w-full h-full pt-16'>

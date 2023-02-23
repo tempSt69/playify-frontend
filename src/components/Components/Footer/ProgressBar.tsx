@@ -1,4 +1,5 @@
 import { RefObject } from 'react';
+import { Span } from '../../Core/Texts/Span';
 
 type TypeProgressBar = {
   hasSong: boolean;
@@ -40,19 +41,15 @@ export const ProgressBar = ({
     >
       {/* {hasSong ? ( */}
       <div className='progress flex gap-3 w-full justify-between items-center'>
-        <span className='font-Kanit font-light time current w-1/12'>
-          {formatTime(timeProgress!)}
-        </span>
+        <Span className='time current w-1/12'>{formatTime(timeProgress!)}</Span>
         <input
           type='range'
           ref={progressBarRef}
           defaultValue='15'
           onChange={handleProgressChange}
-          className=' w-10/12 bg-slate-400 dark:bg-slate-600 range'
+          className=' w-10/12 bg-slate-400 dark:bg-slate-500 range'
         />
-        <span className='font-Kanit font-light time w-1/12 text-right'>
-          {formatTime(duration!)}
-        </span>
+        <Span className='time w-1/12 text-right'>{formatTime(duration!)}</Span>
       </div>
       {/* ) : null} */}
     </div>
