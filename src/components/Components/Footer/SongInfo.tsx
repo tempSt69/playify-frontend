@@ -1,19 +1,29 @@
-import { ButtonPlayer } from '../../Core/Buttons/ButtonPlayer';
-import { SearchInput } from '../../Core/Inputs/SearchInput';
+import { Cover } from '../../Core/Media/Cover';
+import { Head3 } from '../../Core/Texts/Head3';
 
-export type TypeSongInfo = {
-  _id: string;
+type Song = {
+  cover: string;
   name: string;
-  duration: string;
-  active: boolean;
-  trackUrl: string;
 };
 
-export const SongInfo = ({ ...props }) => {
+export type TypeSongInfo = {
+  selectedSong: Song | null;
+};
+
+export const SongInfo = ({ selectedSong = null, ...props }: TypeSongInfo) => {
   return (
-    <div {...props} className={`flex justify-between w-full`}>
-      <SearchInput />
-      <ButtonPlayer icon={'gear'} size={'large'} />
+    <div
+      {...props}
+      className={`flex items-center justify-start w-3/12 rounded-tr-xl h-20 bg-opacity-40 bg-slate-300 dark:bg-slate-700`}
+    >
+      {selectedSong ? (
+        <>
+          <div className='w-3/12 p-2'>
+            <Cover src={selectedSong.cover} size={'small'} />
+          </div>
+          <Head3 className='w-9/12 pl-1'>{selectedSong.name}</Head3>
+        </>
+      ) : null}
     </div>
   );
 };

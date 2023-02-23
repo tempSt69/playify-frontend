@@ -1,15 +1,22 @@
 import { Cover } from '../../Core/Media/Cover';
 import { ControlsMenu } from './ControlsMenu';
 
-export const Player = ({ playing = false, ...props }) => {
+type TypePlayer = {
+  cover?: string;
+  playing?: boolean;
+};
+
+export const Player = ({
+  cover = 'https://i.scdn.co/image/ab6761610000e5eb7b9c72b3e2f9226f5b426291',
+  playing = false,
+  ...props
+}: TypePlayer) => {
   return (
     <div
       {...props}
       className={`flex flex-col gap-3 justify-between h-full w-full pb-5 p-12 rounded-[50px] bg-opacity-40 bg-slate-500`}
     >
-      <Cover
-        src={'https://angartwork.anghcdn.co/webp/?id=1171884882&size=296'}
-      />
+      <Cover src={cover} lowOpacity={!playing} />
       <ControlsMenu playing={playing} />
     </div>
   );

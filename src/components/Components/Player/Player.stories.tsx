@@ -13,5 +13,6 @@ Default.args = {};
 
 export const Playing = Template.bind({});
 Playing.args = {
+  cover: 'https://angartwork.anghcdn.co/webp/?id=1171884882&size=296',
   playing: true,
 };

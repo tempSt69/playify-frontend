@@ -1,11 +1,36 @@
 type Cover = {
   src: string;
+  lowOpacity?: boolean;
+  size?: string;
 };
 
-export const Cover = ({ src, ...props }: Cover) => {
+const getSizeClasses = (size: string) => {
+  switch (size) {
+    case 'small':
+      return 'rounded-[10px]';
+    case 'medium':
+      return 'rounded-[25px]';
+    case 'large':
+    default:
+      return 'rounded-[50px]';
+  }
+};
+
+const getOpacityClass = (lowOpacity: boolean) => {
+  return lowOpacity ? 'opacity-30' : null;
+};
+
+export const Cover = ({
+  src,
+  lowOpacity = false,
+  size = 'large',
+  ...props
+}: Cover) => {
   return (
     <div
-      className='rounded-[50px] border-radius w-full aspect-square bg-no-repeat bg-cover'
+      className={`${getSizeClasses(size)} ${getOpacityClass(
+        lowOpacity
+      )} border-radius h-full aspect-square bg-no-repeat bg-cover`}
       style={{ backgroundImage: `url(${src})` }}
       {...props}
     ></div>
