@@ -22,21 +22,21 @@ Play.args = {
 };
 
 export const PlayLarge = Template.bind({});
-Play.args = {
+PlayLarge.args = {
   icon: 'play',
   size: 'large',
   border: true,
 };
 
 export const PlayXLarge = Template.bind({});
-Play.args = {
+PlayXLarge.args = {
   icon: 'play',
   size: 'xlarge',
   border: true,
 };
 
 export const PlaySmall = Template.bind({});
-Play.args = {
+PlaySmall.args = {
   icon: 'play',
   size: 'small',
   border: true,

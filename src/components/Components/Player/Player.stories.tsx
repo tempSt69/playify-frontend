@@ -10,3 +10,8 @@ const Template: ComponentStory<typeof Player> = (args) => <Player {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {};
+
+export const Playing = Template.bind({});
+Playing.args = {
+  playing: true,
+};

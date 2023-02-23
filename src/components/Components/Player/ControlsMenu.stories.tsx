@@ -12,3 +12,8 @@ const Template: ComponentStory<typeof ControlsMenu> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {};
+
+export const Playing = Template.bind({});
+Playing.args = {
+  playing: true,
+};
