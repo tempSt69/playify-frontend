@@ -1,13 +1,31 @@
-import { Head1 } from './components/Core/Texts/Head1';
+import { Main } from './pages/Main';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import {
+  faPlay,
+  faPause,
+  faBackwardStep,
+  faForwardStep,
+  faShuffle,
+  faMagnifyingGlass,
+  faGear,
+  faMoon,
+  faSun,
+} from '@fortawesome/free-solid-svg-icons';
+
+library.add(
+  faPlay,
+  faPause,
+  faBackwardStep,
+  faForwardStep,
+  faShuffle,
+  faMagnifyingGlass,
+  faGear,
+  faMoon,
+  faSun
+);
 
 function App() {
-  return (
-    <div className='min-h-screen flex justify-center items-center'>
-      <Head1 className='text-3xl font-bold text-blue-600'>
-        Install & Setup Vite + React + Typescript + Tailwind CSS 3
-      </Head1>
-    </div>
-  );
+  return <Main />;
 }
 
 export default App;

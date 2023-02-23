@@ -14,7 +14,7 @@ export const SongInfo = ({ selectedSong = null, ...props }: TypeSongInfo) => {
   return (
     <div
       {...props}
-      className={`flex items-center justify-start w-3/12 rounded-tr-xl h-20 bg-opacity-40 bg-slate-300 dark:bg-slate-700`}
+      className={`flex items-center justify-start w-2/12 rounded-tr-xl h-20 bg-opacity-40 bg-slate-300 dark:bg-slate-700`}
     >
       {selectedSong ? (
         <>

@@ -36,10 +36,10 @@ export const ProgressBar = ({
   return (
     <div
       {...props}
-      className={`flex items-center justify-start w-9/12 rounded-tl-xl h-20 px-4 bg-opacity-40 bg-slate-300 dark:bg-slate-700`}
+      className={`flex items-center justify-start w-10/12 rounded-tl-xl h-20 px-4 bg-opacity-40 bg-slate-300 dark:bg-slate-700`}
     >
       {/* {hasSong ? ( */}
-      <div className='progress flex gap-3 w-full items-center'>
+      <div className='progress flex gap-3 w-full justify-between items-center'>
         <span className='font-Kanit font-light time current w-1/12'>
           {formatTime(timeProgress!)}
         </span>
@@ -50,7 +50,7 @@ export const ProgressBar = ({
           onChange={handleProgressChange}
           className=' w-10/12 bg-slate-400 dark:bg-slate-600 range'
         />
-        <span className='font-Kanit font-light time w-1/12'>
+        <span className='font-Kanit font-light time w-1/12 text-right'>
           {formatTime(duration!)}
         </span>
       </div>

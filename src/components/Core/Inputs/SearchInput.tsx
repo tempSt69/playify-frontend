@@ -11,7 +11,7 @@ export const SearchInput = ({
   return (
     <label
       {...props}
-      className='relative text-gray-400 focus-within:text-gray-600 block'
+      className='relative text-gray-400 focus-within:text-gray-600 block px-7'
     >
       <TextInput placeholder={placeholder}>
         <SimpleIcon

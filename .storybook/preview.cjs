@@ -12,6 +12,8 @@ import {
   faShuffle,
   faMagnifyingGlass,
   faGear,
+  faMoon,
+  faSun,
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -21,7 +23,9 @@ library.add(
   faForwardStep,
   faShuffle,
   faMagnifyingGlass,
-  faGear
+  faGear,
+  faMoon,
+  faSun
 );
 
 export const parameters = {

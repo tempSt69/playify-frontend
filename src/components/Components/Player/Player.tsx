@@ -14,7 +14,7 @@ export const Player = ({
   return (
     <div
       {...props}
-      className={`flex flex-col gap-3 justify-between h-full w-full pb-5 p-12 rounded-[50px] bg-opacity-40 bg-slate-500`}
+      className={`flex flex-col gap-3 justify-between h-full w-full pb-5 p-12 rounded-[50px] bg-opacity-40 bg-slate-300 dark:bg-slate-700`}
     >
       <Cover src={cover} lowOpacity={!playing} />
       <ControlsMenu playing={playing} />
