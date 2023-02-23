@@ -5,7 +5,7 @@ export default {
   title: 'Core/Buttons/Player',
   component: ButtonPlayer,
   argTypes: {
-    size: ['large', 'medium', 'small'],
+    size: ['xlarge', 'large', 'medium', 'small'],
     icon: ['play', 'pause', 'shuffle', 'forward-step', 'backward-step'],
   },
 } as ComponentMeta<typeof ButtonPlayer>;
@@ -18,6 +18,27 @@ export const Play = Template.bind({});
 Play.args = {
   icon: 'play',
   size: 'medium',
+  border: true,
+};
+
+export const PlayLarge = Template.bind({});
+Play.args = {
+  icon: 'play',
+  size: 'large',
+  border: true,
+};
+
+export const PlayXLarge = Template.bind({});
+Play.args = {
+  icon: 'play',
+  size: 'xlarge',
+  border: true,
+};
+
+export const PlaySmall = Template.bind({});
+Play.args = {
+  icon: 'play',
+  size: 'small',
   border: true,
 };
 

@@ -18,6 +18,8 @@ const getSizeClasses = (size: string): string => {
       return 'h-2 w-2 px-1 py-1';
     case 'large':
       return 'h-5 w-5 px-4 py-4';
+    case 'xlarge':
+      return 'h-7 w-7 px-6 py-6';
     case 'medium':
     default:
       return 'h-3 w-3 px-2 py-2';

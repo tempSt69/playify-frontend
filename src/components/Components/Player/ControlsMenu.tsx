@@ -2,10 +2,10 @@ import { ButtonPlayer } from '../../Core/Buttons/ButtonPlayer';
 
 export const ControlsMenu = ({ playing = false, ...props }) => {
   return (
-    <div {...props} className={`p-5 w-full gap-x-4 flex justify-center`}>
-      <ButtonPlayer size={'large'} icon={'backward-step'} />
-      <ButtonPlayer size={'large'} icon={playing ? 'pause' : 'play'} border />
-      <ButtonPlayer size={'large'} icon={'forward-step'} />
+    <div {...props} className={`p-5 w-full gap-x-10 flex justify-center`}>
+      <ButtonPlayer size={'xlarge'} icon={'backward-step'} />
+      <ButtonPlayer size={'xlarge'} icon={playing ? 'pause' : 'play'} border />
+      <ButtonPlayer size={'xlarge'} icon={'forward-step'} />
     </div>
   );
 };
