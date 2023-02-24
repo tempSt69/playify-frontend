@@ -11,9 +11,9 @@ import {
   faMoon,
   faSun,
 } from '@fortawesome/free-solid-svg-icons';
-import { ThemeContext, ThemeContextType } from './contexts/ThemeContext';
-import { useEffect, useState } from 'react';
+import { ThemeContext } from './contexts/ThemeContext';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import useThemeContext from './hooks/useThemeContext';
 
 library.add(
   faPlay,
@@ -30,33 +30,11 @@ library.add(
 function App() {
   const queryClient = new QueryClient();
 
-  const [themeContext, setTheme] = useState<ThemeContextType>({
-    theme:
-      localStorage.getItem('theme') && localStorage.getItem('theme') === 'dark'
-        ? 'dark'
-        : 'light',
-  });
-
-  useEffect(() => {
-    window.document.documentElement.setAttribute(
-      'data-mode',
-      themeContext.theme
-    );
-  }, [themeContext]);
-
-  const switchTheme = () => {
-    localStorage.setItem(
-      'theme',
-      themeContext.theme == 'dark' ? 'light' : 'dark'
-    );
-    setTheme({ theme: themeContext.theme == 'dark' ? 'light' : 'dark' });
-  };
+  const { theme, switchTheme } = useThemeContext();
 
   return (
     <>
-      <ThemeContext.Provider
-        value={{ theme: themeContext.theme, switchTheme: switchTheme }}
-      >
+      <ThemeContext.Provider value={{ theme, switchTheme: switchTheme }}>
         <QueryClientProvider client={queryClient}>
           <Main />
         </QueryClientProvider>
