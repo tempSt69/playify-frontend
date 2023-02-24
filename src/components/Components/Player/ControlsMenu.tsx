@@ -3,10 +3,10 @@ import { MusicPlayerContext } from '../../../contexts/MusicPlayerContext';
 import { ButtonPlayer } from '../../Core/Buttons/ButtonPlayer';
 
 export const ControlsMenu = ({ ...props }) => {
-  const { playing, play, pause } = useContext(MusicPlayerContext);
+  const { playing, play, pause, next, prev } = useContext(MusicPlayerContext);
   return (
     <div {...props} className={`p-5 w-full gap-x-10 flex justify-center`}>
-      <ButtonPlayer size={'xlarge'} icon={'backward-step'} />
+      <ButtonPlayer onClick={prev} size={'xlarge'} icon={'backward-step'} />
       {}
       <ButtonPlayer
         size={'xlarge'}
@@ -14,7 +14,7 @@ export const ControlsMenu = ({ ...props }) => {
         icon={playing ? 'pause' : 'play'}
         border
       />
-      <ButtonPlayer size={'xlarge'} icon={'forward-step'} />
+      <ButtonPlayer onClick={next} size={'xlarge'} icon={'forward-step'} />
     </div>
   );
 };

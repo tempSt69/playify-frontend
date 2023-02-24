@@ -1,11 +1,4 @@
-import {
-  ChangeEventHandler,
-  SetStateAction,
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useQuery } from 'react-query';
 import { Container } from '../components/Components/Container/Container';
 import { Footer } from '../components/Components/Footer/Footer';
@@ -36,9 +29,32 @@ export const Main = () => {
     search(searchString)
   );
 
+  const getMoveIndex = (move: number) => {
+    let actualIndex;
+    switch (move) {
+      case -1: //prev
+        actualIndex = songsList!
+          .map((song: Song) => song._id)
+          .indexOf(song?._id!);
+        return actualIndex == 0 ? songsList!.length - 1 : actualIndex - 1;
+
+      default:
+        //next
+        actualIndex = songsList!
+          .map((song: Song) => song._id)
+          .indexOf(song?._id!);
+        return actualIndex == songsList!.length - 1 ? 0 : actualIndex + 1;
+    }
+  };
+
   const play = () => setPlay(true);
   const pause = () => setPlay(false);
-  const selectSong = (song: Song) => setSong(song);
+  const next = () => setSong(songsList![getMoveIndex(+1)]);
+  const prev = () => setSong(songsList![getMoveIndex(-1)]);
+  const selectSong = (song: Song) => {
+    setSong(song);
+    play();
+  };
   const progress = () =>
     setProgress(
       audioRef && audioRef.current ? audioRef.current.currentTime : 0
@@ -48,18 +64,11 @@ export const Main = () => {
 
   useEffect(() => {
     if (playing) {
-      console.log('playing', playing);
       audioRef.current?.play();
     } else {
-      console.log('playing', playing);
       audioRef.current?.pause();
     }
-  }, [playing]);
-
-  useEffect(() => {
-    console.log('play', 'song??');
-    play();
-  }, [song]);
+  }, [playing, setPlay, song]);
 
   useEffect(() => {
     if (
@@ -75,6 +84,7 @@ export const Main = () => {
         '--range-progress',
         `${(parseInt(progressBarRef.current.value) / song.duration) * 100}%`
       );
+      if (parseInt(progressBarRef.current.value) / song.duration === 1) next();
     }
   }, [timeProgress]);
 
@@ -86,6 +96,8 @@ export const Main = () => {
         progressBarRef,
         pause,
         play,
+        next,
+        prev,
         song,
         selectSong,
         timeProgress,

@@ -9,6 +9,8 @@ export type MusicPlayerContextType = {
   song?: Song;
   pause?(): void;
   play?(): void;
+  next?(): void;
+  prev?(): void;
   selectSong?(song: Song): void;
 };
 
