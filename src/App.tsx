@@ -14,6 +14,7 @@ import {
 import { ThemeContext } from './contexts/ThemeContext';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import useThemeContext from './hooks/useThemeContext';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 library.add(
   faPlay,
@@ -27,6 +28,13 @@ library.add(
   faSun
 );
 
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Main />,
+  },
+]);
+
 function App() {
   const queryClient = new QueryClient();
 
@@ -36,7 +44,7 @@ function App() {
     <>
       <ThemeContext.Provider value={{ theme, switchTheme: switchTheme }}>
         <QueryClientProvider client={queryClient}>
-          <Main />
+          <RouterProvider router={router} />
         </QueryClientProvider>
       </ThemeContext.Provider>
     </>
