@@ -26,11 +26,15 @@ export const ListItem = ({ item, ...props }: TypeListItem) => {
         item.active
       )}`}
       {...props}
-      onClick={() => selectSong!(item)}
+      onClick={() => {
+        if (!item.active) {
+          selectSong!(item);
+        }
+      }}
     >
       <ButtonPlayer
         border={false}
-        icon={item.active ? 'pause' : 'play'}
+        icon={item.active && playing ? 'pause' : 'play'}
         onClick={playing ? pause : play}
         size={'medium'}
         switchTheme={item.active}

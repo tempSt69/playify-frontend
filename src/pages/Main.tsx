@@ -43,19 +43,21 @@ export const Main = () => {
     setProgress(
       audioRef && audioRef.current ? audioRef.current.currentTime : 0
     );
-  const handleSearchTyping = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newValue = setSearch(e.currentTarget.value);
-  };
+  const handleSearchTyping = (e: React.ChangeEvent<HTMLInputElement>) =>
+    setSearch(e.currentTarget.value);
 
   useEffect(() => {
     if (playing) {
+      console.log('playing', playing);
       audioRef.current?.play();
     } else {
+      console.log('playing', playing);
       audioRef.current?.pause();
     }
   }, [playing]);
 
   useEffect(() => {
+    console.log('play', 'song??');
     play();
   }, [song]);
 
@@ -67,10 +69,6 @@ export const Main = () => {
       progressBarRef &&
       progressBarRef.current
     ) {
-      console.log(
-        `${(parseInt(progressBarRef.current.value) / song.duration) * 100}%`
-      );
-
       const currentTime = audioRef.current.currentTime;
       progressBarRef.current.value = currentTime.toString();
       progressBarRef.current.style.setProperty(
@@ -120,6 +118,7 @@ export const Main = () => {
                 <Player
                   playing={song ? true : false}
                   cover={song ? song.artist.cover : DEFAULT_COVER}
+                  hasSong={song ? true : false}
                 />
               </div>
               <div className='w-7/12 px-5'>
