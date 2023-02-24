@@ -13,6 +13,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { ThemeContext, ThemeContextType } from './contexts/ThemeContext';
 import { useEffect, useState } from 'react';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 library.add(
   faPlay,
@@ -27,6 +28,8 @@ library.add(
 );
 
 function App() {
+  const queryClient = new QueryClient();
+
   const [themeContext, setTheme] = useState<ThemeContextType>({
     theme: 'light',
   });
@@ -36,7 +39,6 @@ function App() {
       'data-mode',
       themeContext.theme
     );
-    console.log('effect theme', themeContext.theme);
   }, [themeContext]);
 
   const switchTheme = () => {
@@ -44,11 +46,15 @@ function App() {
   };
 
   return (
-    <ThemeContext.Provider
-      value={{ theme: themeContext.theme, switchTheme: switchTheme }}
-    >
-      <Main />
-    </ThemeContext.Provider>
+    <>
+      <ThemeContext.Provider
+        value={{ theme: themeContext.theme, switchTheme: switchTheme }}
+      >
+        <QueryClientProvider client={queryClient}>
+          <Main />
+        </QueryClientProvider>
+      </ThemeContext.Provider>
+    </>
   );
 }
 

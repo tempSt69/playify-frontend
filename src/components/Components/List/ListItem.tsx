@@ -1,13 +1,13 @@
+import { useContext } from 'react';
+import { MusicPlayerContext } from '../../../contexts/MusicPlayerContext';
+import { Song } from '../../../services/types/Song';
+import { formatTime } from '../../../utils/FormatTime';
 import { ButtonPlayer } from '../../Core/Buttons/ButtonPlayer';
 import { Head3 } from '../../Core/Texts/Head3';
 import { Span } from '../../Core/Texts/Span';
 
 export type TypeListItem = {
-  _id: string;
-  name: string;
-  duration: string;
-  active: boolean;
-  trackUrl: string;
+  item: Song & { active: boolean };
 };
 const getWrapperClasses = (active: boolean) =>
   active
@@ -16,31 +16,31 @@ const getWrapperClasses = (active: boolean) =>
 const getInnerClasses = (active: boolean) =>
   active ? 'text-white dark:text-black' : 'text-black dark:text-white';
 
-export const ListItem = ({
-  _id,
-  name,
-  duration,
-  active = false,
-  ...props
-}: TypeListItem) => {
-  const innerClasses = getInnerClasses(active);
+export const ListItem = ({ item, ...props }: TypeListItem) => {
+  const innerClasses = getInnerClasses(item.active);
+  const { playing, pause, play, selectSong } = useContext(MusicPlayerContext);
+
   return (
     <div
       className={`duration my-2 border-2 cursor-pointer border-transparent flex w-full items-center px-5 py-3 rounded-3xl transition-all duration-500 ease-in ${getWrapperClasses(
-        active
+        item.active
       )}`}
       {...props}
+      onClick={() => selectSong!(item)}
     >
       <ButtonPlayer
         border={false}
-        icon={active ? 'pause' : 'play'}
+        icon={item.active ? 'pause' : 'play'}
+        onClick={playing ? pause : play}
         size={'medium'}
-        switchTheme={active}
+        switchTheme={item.active}
       />
-      <Head3 switchTheme={active} className={`ml-5 ${innerClasses}`}>
-        {name}
+      <Head3 switchTheme={item.active} className={`ml-5 ${innerClasses}`}>
+        {item.name}
       </Head3>
-      <Span className={`${innerClasses} ml-auto`}>{duration}</Span>
+      <Span className={`${innerClasses} ml-auto`}>
+        {formatTime(item.duration)}
+      </Span>
     </div>
   );
 };

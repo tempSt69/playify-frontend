@@ -1,7 +1,9 @@
+import { Artist } from './Artist';
+
 export type Song = {
   _id: string;
   name: string;
-  artistId: string;
+  artist: Artist;
   trackUrl: string;
   duration: number;
 };

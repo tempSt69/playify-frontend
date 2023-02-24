@@ -1,4 +1,5 @@
 import { RefObject } from 'react';
+import { formatTime } from '../../../utils/FormatTime';
 import { Span } from '../../Core/Texts/Span';
 
 type TypeProgressBar = {
@@ -23,17 +24,6 @@ export const ProgressBar = ({
     }
   };
 
-  const formatTime = (time: number): string => {
-    if (time && !isNaN(time)) {
-      const minutes = Math.floor(time / 60);
-      const formatMinutes = minutes < 10 ? `0${minutes}` : `${minutes}`;
-      const seconds = Math.floor(time % 60);
-      const formatSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
-      return `${formatMinutes}:${formatSeconds}`;
-    }
-    return '00:00';
-  };
-
   return (
     <div
       {...props}
@@ -45,7 +35,9 @@ export const ProgressBar = ({
         <input
           type='range'
           ref={progressBarRef}
-          defaultValue='15'
+          defaultValue='0'
+          min={0}
+          max={duration}
           onChange={handleProgressChange}
           className=' w-10/12 bg-slate-400 dark:bg-slate-500 range'
         />

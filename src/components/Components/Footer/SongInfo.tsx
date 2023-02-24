@@ -1,13 +1,15 @@
 import { Cover } from '../../Core/Media/Cover';
 import { Head3 } from '../../Core/Texts/Head3';
+import { Paragraph } from '../../Core/Texts/Paragraph';
+import { Span } from '../../Core/Texts/Span';
 
-type Song = {
+type SongBasics = {
   cover: string;
   name: string;
 };
 
 export type TypeSongInfo = {
-  selectedSong: Song | null;
+  selectedSong: SongBasics | null;
 };
 
 export const SongInfo = ({ selectedSong = null, ...props }: TypeSongInfo) => {
@@ -21,7 +23,7 @@ export const SongInfo = ({ selectedSong = null, ...props }: TypeSongInfo) => {
           <div className='w-3/12 p-2'>
             <Cover src={selectedSong.cover} size={'small'} />
           </div>
-          <Head3 className='w-9/12 pl-1'>{selectedSong.name}</Head3>
+          <Paragraph className='w-9/12 pl-1'>{selectedSong.name}</Paragraph>
         </>
       ) : null}
     </div>
