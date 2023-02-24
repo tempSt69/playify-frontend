@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { QueryKey } from 'react-query';
 import { Song } from '../types/Song';
 
 const prefix = 'song/';
@@ -36,6 +35,6 @@ export const search = async (searchString: string) => {
   return songs;
 };
 
-export const streamUrl = (id: string): string => {
+export const createStreamUrl = (id: string): string => {
   return `${import.meta.env.VITE_API_URL}${prefix}${id}/stream`;
 };

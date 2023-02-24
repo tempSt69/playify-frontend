@@ -3,12 +3,19 @@ import { TypeListItem, ListItem } from './ListItem';
 
 type List = {
   items: TypeListItem[];
+  error: Error | null;
   loading: boolean;
 };
 
-export const List = ({ items, loading = false, ...props }: List) => {
+export const List = ({
+  items,
+  error = null,
+  loading = false,
+  ...props
+}: List) => {
   return (
     <div {...props} className={`py-3 rounded-3xl transition-colors`}>
+      {error ? <div className='text-center'>{error.message}</div> : null}
       {!loading ? (
         items.map((item, key) => <ListItem key={key} {...item} />)
       ) : (

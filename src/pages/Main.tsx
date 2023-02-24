@@ -7,8 +7,9 @@ import { List } from '../components/Components/List/List';
 import { Player } from '../components/Components/Player/Player';
 import { SearchInput } from '../components/Core/Inputs/SearchInput';
 import { MusicPlayerContext } from '../contexts/MusicPlayerContext';
-import { getAll, search, streamUrl } from '../services/api/Song';
+import { search, createStreamUrl } from '../services/api/Song';
 import { Song } from '../services/types/Song';
+import { getMoveIndex } from '../utils/changeSong';
 
 const DEFAULT_COVER =
   'https://i.scdn.co/image/ab6761610000e5eb7b9c72b3e2f9226f5b426291';
@@ -28,29 +29,10 @@ export const Main = () => {
   } = useQuery<Song[], Error>(['songs', searchString], () =>
     search(searchString)
   );
-
-  const getMoveIndex = (move: number) => {
-    let actualIndex;
-    switch (move) {
-      case -1: //prev
-        actualIndex = songsList!
-          .map((song: Song) => song._id)
-          .indexOf(song?._id!);
-        return actualIndex == 0 ? songsList!.length - 1 : actualIndex - 1;
-
-      default:
-        //next
-        actualIndex = songsList!
-          .map((song: Song) => song._id)
-          .indexOf(song?._id!);
-        return actualIndex == songsList!.length - 1 ? 0 : actualIndex + 1;
-    }
-  };
-
   const play = () => setPlay(true);
   const pause = () => setPlay(false);
-  const next = () => setSong(songsList![getMoveIndex(+1)]);
-  const prev = () => setSong(songsList![getMoveIndex(-1)]);
+  const next = () => setSong(songsList![getMoveIndex(+1, song!, songsList!)]);
+  const prev = () => setSong(songsList![getMoveIndex(-1, song!, songsList!)]);
   const selectSong = (song: Song) => {
     setSong(song);
     play();
@@ -70,6 +52,7 @@ export const Main = () => {
     }
   }, [playing, setPlay, song]);
 
+  //handles progressbar and currentTime playing
   useEffect(() => {
     if (
       song &&
@@ -105,7 +88,7 @@ export const Main = () => {
     >
       {song ? (
         <audio
-          src={streamUrl(song._id)}
+          src={createStreamUrl(song._id)}
           ref={audioRef}
           className={`hidden`}
           onTimeUpdate={progress}
@@ -137,6 +120,7 @@ export const Main = () => {
                 <SearchInput onChange={handleSearchTyping} />
                 <List
                   loading={songsFetching}
+                  error={songsError}
                   items={
                     songsList
                       ? songsList.map((songItem) => ({
