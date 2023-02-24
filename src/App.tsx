@@ -31,7 +31,10 @@ function App() {
   const queryClient = new QueryClient();
 
   const [themeContext, setTheme] = useState<ThemeContextType>({
-    theme: 'light',
+    theme:
+      localStorage.getItem('theme') && localStorage.getItem('theme') === 'dark'
+        ? 'dark'
+        : 'light',
   });
 
   useEffect(() => {
@@ -42,6 +45,10 @@ function App() {
   }, [themeContext]);
 
   const switchTheme = () => {
+    localStorage.setItem(
+      'theme',
+      themeContext.theme == 'dark' ? 'light' : 'dark'
+    );
     setTheme({ theme: themeContext.theme == 'dark' ? 'light' : 'dark' });
   };
 

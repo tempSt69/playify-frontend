@@ -1,6 +1,5 @@
 import { IconName } from '@fortawesome/fontawesome-svg-core';
 import React, { useMemo } from 'react';
-import { invertThemeHelper } from '../../CommonTypes';
 import { SimpleIcon } from '../Commons/SimpleIcon';
 
 type TypeIconButton = {
@@ -40,7 +39,6 @@ export const ButtonPlayer = ({
   icon,
   border = false,
   refresh = false,
-  switchTheme = false,
   disabled = false,
   onClick = undefined,
   ...props
@@ -49,15 +47,14 @@ export const ButtonPlayer = ({
     const sizeClass = getSizeClasses(size);
     const borderClass = getBorderClasses(border);
     const disabledClass = getDisabledClasses(disabled);
-    const colorsClass = invertThemeHelper(switchTheme);
 
-    return [sizeClass, borderClass, disabledClass, colorsClass].join(' ');
-  }, [switchTheme, size, border, disabled]);
+    return [sizeClass, borderClass, disabledClass].join(' ');
+  }, [size, border, disabled]);
   return (
     <button type='button' {...props} onClick={onClick}>
       <SimpleIcon
         icon={icon}
-        className={`bg-transparent inline-block rounded-full active:scale-90 active:bg-opacity-30 active:bg-neutral-100 dark:active:bg-neutral-600 dark:active:bg-opacity-30 transition-all duration-100 ease-in-out ${computedClasses}`}
+        className={`dark:text-white text-black bg-transparent inline-block rounded-full active:scale-90 active:bg-opacity-30 active:bg-neutral-100 dark:active:bg-neutral-600 dark:active:bg-opacity-30 transition-all duration-100 ease-in-out ${computedClasses}`}
       />
     </button>
   );

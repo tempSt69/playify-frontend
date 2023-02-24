@@ -7,7 +7,7 @@ import { List } from '../components/Components/List/List';
 import { Player } from '../components/Components/Player/Player';
 import { SearchInput } from '../components/Core/Inputs/SearchInput';
 import { MusicPlayerContext } from '../contexts/MusicPlayerContext';
-import { search, createStreamUrl } from '../services/api/Song';
+import { createStreamUrl, search } from '../services/api/Song';
 import { Song } from '../services/types/Song';
 import { getMoveIndex } from '../utils/changeSong';
 

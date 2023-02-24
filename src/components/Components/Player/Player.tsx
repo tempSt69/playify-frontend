@@ -18,7 +18,7 @@ export const Player = ({
       {...props}
       className={`${
         hasSong ? 'pb-5 ' : ''
-      } flex flex-col gap-3 justify-between h-full w-full p-12 rounded-[50px] bg-opacity-40 bg-slate-300 dark:bg-slate-700`}
+      } flex flex-col gap-3 justify-between h-full w-full p-12 rounded-[50px] bg-opacity-40 bg-slate-300 dark:bg-slate-700 dark:bg-opacity-40`}
     >
       <Cover src={cover} lowOpacity={!playing} />
       {hasSong ? <ControlsMenu playing={playing} /> : null}

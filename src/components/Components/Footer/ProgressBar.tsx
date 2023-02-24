@@ -1,5 +1,5 @@
 import { RefObject } from 'react';
-import { formatTime } from '../../../utils/FormatTime';
+import { formatTime } from '../../../utils/formatTime';
 import { Span } from '../../Core/Texts/Span';
 
 type TypeProgressBar = {
@@ -27,11 +27,13 @@ export const ProgressBar = ({
   return (
     <div
       {...props}
-      className={`flex items-center justify-start w-10/12 rounded-tl-xl h-20 px-4 bg-opacity-40 bg-slate-300 dark:bg-slate-700`}
+      className={`flex items-center justify-start w-10/12 rounded-tl-xl h-20 px-4 bg-opacity-40 bg-slate-300 dark:bg-slate-700 dark:bg-opacity-40`}
     >
       {/* {hasSong ? ( */}
       <div className='progress flex gap-3 w-full justify-between items-center'>
-        <Span className='time current w-1/12'>{formatTime(timeProgress!)}</Span>
+        <Span className='time  current w-1/12'>
+          {formatTime(timeProgress!)}
+        </Span>
         <input
           type='range'
           ref={progressBarRef}
