@@ -12,33 +12,127 @@ export const Default = Template.bind({});
 Default.args = {
   items: [
     {
-      _id: '1',
-      name: 'Moto',
-      duration: '2:00',
-      active: false,
-      trackUrl: 'try',
+      item: {
+        _id: '1',
+        name: 'Moto',
+        duration: 120,
+        artist: {
+          _id: '1',
+          name: 'Alekos',
+          cover: 'ok',
+        },
+        active: false,
+        trackUrl: 'try',
+      },
     },
     {
-      _id: '2',
-      name: 'Moto',
-      duration: '2:00',
-      active: false,
-      trackUrl: 'try',
+      item: {
+        _id: '1',
+        name: 'Moto',
+        duration: 120,
+        artist: {
+          _id: '1',
+          name: 'Alekos',
+          cover: 'ok',
+        },
+        active: false,
+        trackUrl: 'try',
+      },
     },
     {
-      _id: '3',
-      name: 'Moto',
-      duration: '2:00',
-      active: false,
-      trackUrl: 'try',
+      item: {
+        _id: '1',
+        name: 'Moto',
+        duration: 120,
+        artist: {
+          _id: '1',
+          name: 'Alekos',
+          cover: 'ok',
+        },
+        active: false,
+        trackUrl: 'try',
+      },
     },
     {
-      _id: '4',
-      name: 'Moto',
-      duration: '2:00',
-      active: false,
-      trackUrl: 'try',
+      item: {
+        _id: '1',
+        name: 'Moto',
+        duration: 120,
+        artist: {
+          _id: '1',
+          name: 'Alekos',
+          cover: 'ok',
+        },
+        active: false,
+        trackUrl: 'try',
+      },
     },
   ],
-  activeId: '3',
+};
+
+export const Loading = Template.bind({});
+Loading.args = {
+  loading: true,
+};
+
+export const DefaultWithOneActive = Template.bind({});
+DefaultWithOneActive.args = {
+  items: [
+    {
+      item: {
+        _id: '1',
+        name: 'Moto',
+        duration: 120,
+        artist: {
+          _id: '1',
+          name: 'Alekos',
+          cover: 'ok',
+        },
+        active: true,
+        trackUrl: 'try',
+      },
+    },
+    {
+      item: {
+        _id: '1',
+        name: 'Moto',
+        duration: 120,
+        artist: {
+          _id: '1',
+          name: 'Alekos',
+          cover: 'ok',
+        },
+        active: false,
+        trackUrl: 'try',
+      },
+    },
+    {
+      item: {
+        _id: '1',
+        name: 'Moto',
+        duration: 120,
+        artist: {
+          _id: '1',
+          name: 'Alekos',
+          cover: 'ok',
+        },
+        active: false,
+        trackUrl: 'try',
+      },
+    },
+    {
+      item: {
+        _id: '1',
+        name: 'Moto',
+        duration: 120,
+        artist: {
+          _id: '1',
+          name: 'Alekos',
+          cover: 'ok',
+        },
+        active: false,
+        trackUrl: 'try',
+      },
+    },
+  ],
 };

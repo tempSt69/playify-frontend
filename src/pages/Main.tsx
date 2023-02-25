@@ -1,6 +1,6 @@
 import { ChangeEvent, useEffect, useRef, useState } from 'react';
 import { useQuery } from 'react-query';
-import MainLayout from '../components/Layouts/MainLayout';
+import { MainLayout } from '../components/Layouts/MainLayout';
 import { MusicPlayerContext } from '../contexts/MusicPlayerContext';
 import { createStreamUrl, search } from '../services/api/Song';
 import { Song } from '../services/types/Song';
@@ -93,6 +93,7 @@ export const Main = () => {
         ></audio>
       ) : null}
       <MainLayout
+        playing={playing}
         song={song}
         songsFetching={songsFetching}
         songsError={songsError}

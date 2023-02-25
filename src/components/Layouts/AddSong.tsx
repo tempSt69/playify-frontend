@@ -22,11 +22,11 @@ type SongFormValues = {
   file: FileList;
 };
 
-export default function AddSongLayout({
+export const AddSongLayout: React.FC<AddSongLayout> = ({
   addSong,
   loading,
   artistList,
-}: AddSongLayout) {
+}) => {
   const { register, handleSubmit } = useForm<SongFormValues>();
   const onSubmit: SubmitHandler<SongFormValues> = async (data) => {
     console.log(data);
@@ -89,4 +89,4 @@ export default function AddSongLayout({
       )}
     </div>
   );
-}
+};

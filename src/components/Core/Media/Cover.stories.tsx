@@ -4,6 +4,7 @@ import { Cover } from './Cover';
 export default {
   title: 'Core/Media/Cover',
   component: Cover,
+  decorators: [(story) => <div className='w-3/12 mx-auto'>{story()}</div>],
 } as ComponentMeta<typeof Cover>;
 
 const Template: ComponentStory<typeof Cover> = (args) => <Cover {...args} />;

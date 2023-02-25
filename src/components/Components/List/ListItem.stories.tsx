@@ -12,7 +12,32 @@ const Template: ComponentStory<typeof ListItem> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  name: 'Moto',
-  duration: '2:00',
-  active: false,
+  item: {
+    _id: '1',
+    name: 'Moto',
+    duration: 120,
+    artist: {
+      _id: '1',
+      name: 'Alekos',
+      cover: 'ok',
+    },
+    active: false,
+    trackUrl: 'try',
+  },
+};
+
+export const Active = Template.bind({});
+Active.args = {
+  item: {
+    _id: '1',
+    name: 'Moto',
+    duration: 120,
+    artist: {
+      _id: '1',
+      name: 'Alekos',
+      cover: 'ok',
+    },
+    active: true,
+    trackUrl: 'try',
+  },
 };

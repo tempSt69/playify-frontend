@@ -3,11 +3,9 @@
   setInterval(() => {
     console.log(window.document.documentElement.getAttribute('data-mode'));
     if (window.document.documentElement.getAttribute('data-mode') == 'light') {
-      window.document.documentElement.style.background =
-        'url(https://impressprinters.com/wp-content/uploads/2017/10/blurred-background-1.jpg)';
+      window.document.documentElement.style.backgroundColor = 'white';
     } else {
-      window.document.documentElement.style.background =
-        'url(https://c4.wallpaperflare.com/wallpaper/741/165/184/glare-light-blurry-dark-wallpaper-preview.jpg)';
+      window.document.documentElement.style.backgroundColor = 'black';
     }
   }, 2000);
 </script>

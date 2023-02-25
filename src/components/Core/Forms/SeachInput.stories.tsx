@@ -12,5 +12,5 @@ const Template: ComponentStory<typeof SearchInput> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  placeholder: 'Find your path',
+  placeholder: 'Type a song name',
 };

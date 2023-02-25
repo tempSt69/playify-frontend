@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from 'react-query';
-import AddSongLayout from '../components/Layouts/AddSong';
+import { AddSongLayout } from '../components/Layouts/AddSong';
 import { getAll } from '../services/api/Artist';
 import { insertSong } from '../services/api/Song';
 import { Artist } from '../services/types/Artist';

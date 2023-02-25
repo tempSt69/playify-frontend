@@ -12,17 +12,19 @@ const DEFAULT_COVER =
 type MainLayoutType = {
   song: Song | undefined;
   songsFetching: boolean;
+  playing: boolean;
   songsError: Error | null;
   songsList: Song[] | undefined;
   handleSearchTyping(e: React.ChangeEvent<HTMLInputElement>): void;
 };
-export default function MainLayout({
+export const MainLayout: React.FC<MainLayoutType> = ({
+  playing,
   song,
   songsFetching,
   songsError,
   songsList,
   handleSearchTyping,
-}: MainLayoutType) {
+}) => {
   return (
     <div className='h-screen relative'>
       <div
@@ -41,7 +43,7 @@ export default function MainLayout({
           <div className='flex justify-between w-full h-full pt-16'>
             <div className='w-5/12'>
               <Player
-                playing={song ? true : false}
+                playing={playing}
                 cover={song ? song.artist.cover : DEFAULT_COVER}
                 hasSong={song ? true : false}
               />
@@ -74,4 +76,4 @@ export default function MainLayout({
       </div>
     </div>
   );
-}
+};
