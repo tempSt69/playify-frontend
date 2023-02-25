@@ -3,7 +3,7 @@ import React, { useMemo } from 'react';
 import { SimpleIcon } from '../Commons/SimpleIcon';
 
 type TypeIconButton = {
-  size: string;
+  size: 'small' | 'medium' | 'large' | 'xlarge';
   icon: IconName;
   border?: boolean;
   refresh?: boolean;
@@ -34,7 +34,7 @@ const getDisabledClasses = (disabled: boolean): string => {
   return disabled ? 'cursor-default pointer-events-none' : 'cursor-pointer';
 };
 
-export const ButtonPlayer = ({
+export const ButtonPlayer: React.FC<TypeIconButton> = ({
   size,
   icon,
   border = false,
@@ -42,7 +42,7 @@ export const ButtonPlayer = ({
   disabled = false,
   onClick = undefined,
   ...props
-}: TypeIconButton) => {
+}) => {
   const computedClasses = useMemo(() => {
     const sizeClass = getSizeClasses(size);
     const borderClass = getBorderClasses(border);

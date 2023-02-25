@@ -1,8 +1,9 @@
 import { useMemo } from 'react';
 
 type TypeButton = {
-  size: string;
-  primary: boolean;
+  type: 'button' | 'submit';
+  size?: 'small' | 'medium' | 'large';
+  primary?: boolean;
   label: string;
 };
 
@@ -26,9 +27,10 @@ const BASE_BUTTON_CLASSES =
   'active:scale-90 transition-all duration-100 ease-in-out cursor-pointer rounded-full border-2 font-bold leading-none inline-block';
 
 export const Button = ({
-  primary = false,
+  primary = true,
   size = 'medium',
   label = 'Button',
+  type = 'button',
   ...props
 }: TypeButton) => {
   const computedClasses = useMemo(() => {
@@ -40,7 +42,7 @@ export const Button = ({
 
   return (
     <button
-      type='button'
+      type={type}
       className={`${BASE_BUTTON_CLASSES} ${computedClasses}`}
       {...props}
     >

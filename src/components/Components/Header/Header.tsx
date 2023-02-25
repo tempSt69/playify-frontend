@@ -1,6 +1,8 @@
 import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { ThemeContext } from '../../../contexts/ThemeContext';
 import { ButtonPlayer } from '../../Core/Buttons/ButtonPlayer';
+
 export const Header = ({ ...props }) => {
   const { theme, switchTheme } = useContext(ThemeContext);
 
@@ -9,7 +11,12 @@ export const Header = ({ ...props }) => {
       {...props}
       className={`flex justify-end items-start w-full absolute top-0 right-0`}
     >
-      <ButtonPlayer icon={'gear'} size={'large'} />
+      <Link to='/'>
+        <ButtonPlayer icon={'play'} size={'large'} />
+      </Link>
+      <Link to='/add'>
+        <ButtonPlayer icon={'gear'} size={'large'} />
+      </Link>
       <ButtonPlayer
         onClick={switchTheme}
         icon={theme == 'light' ? 'moon' : 'sun'}

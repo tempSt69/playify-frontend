@@ -5,11 +5,11 @@ type SearchInput = {
   placeholder?: string;
   onChange?: React.ChangeEventHandler;
 };
-export const SearchInput = ({
-  placeholder = 'Seach input',
-  onChange = undefined,
+export const SearchInput: React.FC<SearchInput> = ({
+  placeholder,
+  onChange,
   ...props
-}: SearchInput) => {
+}) => {
   return (
     <label
       {...props}

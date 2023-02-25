@@ -15,6 +15,7 @@ import { ThemeContext } from './contexts/ThemeContext';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import useThemeContext from './hooks/useThemeContext';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { AddSong } from './pages/AddSong';
 
 library.add(
   faPlay,
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <Main />,
+  },
+  {
+    path: '/add',
+    element: <AddSong />,
   },
 ]);
 

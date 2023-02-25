@@ -22,12 +22,12 @@ const getSizeClasses = (size?: string): SizeProp | undefined => {
       return '2x';
   }
 };
-export const SimpleIcon = ({
+export const SimpleIcon: React.FC<TypeSimpleIcon> = ({
   size,
   icon,
   className,
   ...props
-}: TypeSimpleIcon) => {
+}) => {
   const computedClasses = useMemo(() => {
     return [className].join(' ');
   }, [className]);

@@ -12,7 +12,10 @@ export type TypeSongInfo = {
   selectedSong: SongBasics | null;
 };
 
-export const SongInfo = ({ selectedSong = null, ...props }: TypeSongInfo) => {
+export const SongInfo: React.FC<TypeSongInfo> = ({
+  selectedSong = null,
+  ...props
+}) => {
   return (
     <div
       {...props}

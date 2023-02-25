@@ -10,14 +10,14 @@ type TypeProgressBar = {
   timeProgress?: number;
 };
 
-export const ProgressBar = ({
+export const ProgressBar: React.FC<TypeProgressBar> = ({
   hasSong = false,
   progressBarRef,
   audioRef,
   timeProgress,
   duration,
   ...props
-}: TypeProgressBar) => {
+}) => {
   const handleProgressChange = () => {
     if (hasSong && audioRef && audioRef.current && progressBarRef) {
       audioRef.current.currentTime = parseInt(progressBarRef.current!.value);

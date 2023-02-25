@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { SearchInput } from './SearchInput';
 
 export default {
-  title: 'Core/Inputs/Search',
+  title: 'Core/Forms/Input/Search',
   component: SearchInput,
 } as ComponentMeta<typeof SearchInput>;
 

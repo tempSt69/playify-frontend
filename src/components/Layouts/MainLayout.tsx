@@ -4,7 +4,7 @@ import { Footer } from '../Components/Footer/Footer';
 import { Header } from '../Components/Header/Header';
 import { List } from '../Components/List/List';
 import { Player } from '../Components/Player/Player';
-import { SearchInput } from '../Core/Inputs/SearchInput';
+import { SearchInput } from '../Core/Forms/SearchInput';
 
 const DEFAULT_COVER =
   'https://i.scdn.co/image/ab6761610000e5eb7b9c72b3e2f9226f5b426291';

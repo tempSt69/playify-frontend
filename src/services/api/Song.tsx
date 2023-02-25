@@ -35,6 +35,30 @@ export const search = async (searchString: string) => {
   return songs;
 };
 
+export const insertSong = async (
+  song: Omit<Omit<Song, '_id'>, 'trackUrl'> & { file: File }
+) => {
+  const formData = new FormData();
+  formData.append('name', song.name);
+  formData.append('duration', song.duration.toString());
+  formData.append('artist[_id]', song.artist._id);
+  formData.append('artist[cover]', song.artist.cover);
+  formData.append('artist[name]', song.artist.name);
+  formData.append('song', song.file);
+  console.log(formData);
+
+  const response = await axios({
+    method: 'post',
+    url: `${import.meta.env.VITE_API_URL}${prefix}`,
+    data: formData,
+    headers: { 'Content-Type': 'multipart/form-data' },
+  });
+  if (response.status > 300) {
+    throw new Error('Error posting data');
+  }
+  return response.status === 201;
+};
+
 export const createStreamUrl = (id: string): string => {
   return `${import.meta.env.VITE_API_URL}${prefix}${id}/stream`;
 };
