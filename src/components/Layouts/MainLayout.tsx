@@ -47,7 +47,10 @@ export default function MainLayout({
               />
             </div>
             <div className='w-7/12 px-5'>
-              <SearchInput onChange={handleSearchTyping} />
+              <SearchInput
+                placeholder='Type a song name'
+                onChange={handleSearchTyping}
+              />
               <List
                 loading={songsFetching}
                 error={songsError}

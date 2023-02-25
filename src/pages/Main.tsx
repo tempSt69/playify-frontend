@@ -29,18 +29,24 @@ export const Main = () => {
     setSong(song);
     play();
   };
-  const progress = () =>
+  const progress = () => {
+    console.log('manual setprogress', audioRef.current!.currentTime);
+    console.log('setprogress', audioRef.current!.currentTime);
+
     setProgress(
       audioRef && audioRef.current ? audioRef.current.currentTime : 0
     );
+  };
   const handleSearchTyping = (e: React.ChangeEvent<HTMLInputElement>) =>
     setSearch(e.currentTarget.value);
 
   useEffect(() => {
-    if (playing) {
-      audioRef.current?.play();
-    } else {
-      audioRef.current?.pause();
+    if (audioRef.current) {
+      if (playing) {
+        audioRef.current.play();
+      } else {
+        audioRef.current.pause();
+      }
     }
   }, [playing, setPlay, song]);
 
