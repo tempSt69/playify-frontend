@@ -10,7 +10,7 @@ import { Panel } from '../Core/Panel/Panel';
 import { Head2 } from '../Core/Texts/Head2';
 
 type AddSongLayout = {
-  addSong(song: Omit<Omit<Song, '_id'>, 'trackUrl'> & { file: File }): void;
+  addSong(song: Omit<Omit<Song, 'id'>, 'trackUrl'> & { file: File }): void;
   loading: boolean;
   artistList: Artist[];
 };
@@ -31,7 +31,7 @@ export const AddSongLayout: React.FC<AddSongLayout> = ({
   const onSubmit: SubmitHandler<SongFormValues> = async (data) => {
     console.log(data);
 
-    const artistFound = artistList.find((art) => art._id === data.artist);
+    const artistFound = artistList.find((art) => art.id === data.artist);
     if (artistFound) {
       addSong({
         ...data,
@@ -73,7 +73,7 @@ export const AddSongLayout: React.FC<AddSongLayout> = ({
               <Select register={register} name='artist'>
                 <>
                   {artistList.map((artist, key) => (
-                    <option key={key} value={artist._id}>
+                    <option key={key} value={artist.id}>
                       {artist.name}
                     </option>
                   ))}

@@ -63,7 +63,7 @@ export const MainLayout: React.FC<MainLayoutType> = ({
                           ...songItem,
                           name: `${songItem.artist.name} - ${songItem.name}`,
                           active:
-                            song && song._id === songItem._id ? true : false,
+                            song && song.id === songItem.id ? true : false,
                         },
                       }))
                     : []

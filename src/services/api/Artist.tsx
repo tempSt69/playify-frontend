@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const prefix = 'artist/';
+const prefix = 'artist';
 
 export const getAll = async () => {
   const response = await axios.get(`${import.meta.env.VITE_API_URL}${prefix}`);

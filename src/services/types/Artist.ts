@@ -1,5 +1,5 @@
 export type Artist = {
-  _id: string;
+  id: string;
   name: string;
   cover: string;
 };

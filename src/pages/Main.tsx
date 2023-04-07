@@ -86,7 +86,7 @@ export const Main = () => {
     >
       {song ? (
         <audio
-          src={createStreamUrl(song._id)}
+          src={createStreamUrl(song.id)}
           ref={audioRef}
           className={`hidden`}
           onTimeUpdate={progress}

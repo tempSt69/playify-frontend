@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { Song } from '../types/Song';
 
-const prefix = 'song/';
+const prefix = 'song';
 
 function assertIsSong(song: any): asserts song is Song {
   if (!('name' in song)) {
@@ -23,7 +23,7 @@ export const search = async (searchString: string) => {
   let songs;
   if (searchString.length > 1) {
     response = await axios.get(
-      `${import.meta.env.VITE_API_URL}${prefix}search/${searchString}`
+      `${import.meta.env.VITE_API_URL}${prefix}/search/${searchString}`
     );
     if (!response.data) {
       throw new Error('Error fetching data');
@@ -36,12 +36,12 @@ export const search = async (searchString: string) => {
 };
 
 export const insertSong = async (
-  song: Omit<Omit<Song, '_id'>, 'trackUrl'> & { file: File }
+  song: Omit<Omit<Song, 'id'>, 'trackUrl'> & { file: File }
 ) => {
   const formData = new FormData();
   formData.append('name', song.name);
   formData.append('duration', song.duration.toString());
-  formData.append('artist[_id]', song.artist._id);
+  formData.append('artist[id]', song.artist.id);
   formData.append('artist[cover]', song.artist.cover);
   formData.append('artist[name]', song.artist.name);
   formData.append('song', song.file);
@@ -60,5 +60,5 @@ export const insertSong = async (
 };
 
 export const createStreamUrl = (id: string): string => {
-  return `${import.meta.env.VITE_API_URL}${prefix}${id}/stream`;
+  return `${import.meta.env.VITE_API_URL}${prefix}/${id}/stream`;
 };

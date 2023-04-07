@@ -9,13 +9,13 @@ export const getMoveIndex = (
   switch (move) {
     case -1:
       actualIndex = songsList!
-        .map((song: Song) => song._id)
-        .indexOf(actualSong._id!);
+        .map((song: Song) => song.id)
+        .indexOf(actualSong.id!);
       return actualIndex == 0 ? songsList!.length - 1 : actualIndex - 1;
     default:
       actualIndex = songsList!
-        .map((song: Song) => song._id)
-        .indexOf(actualSong._id!);
+        .map((song: Song) => song.id)
+        .indexOf(actualSong.id!);
       return actualIndex == songsList!.length - 1 ? 0 : actualIndex + 1;
   }
 };
