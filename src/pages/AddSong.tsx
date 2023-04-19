@@ -8,7 +8,7 @@ export const AddSong = () => {
   const {
     isFetching: artistsFetching,
     error: artistsError,
-    data: artistList,
+    data: artistList
   } = useQuery<Artist[], Error>(['artists'], getAll);
 
   const { mutate: addSongMutaton } = useMutation(insertSong);

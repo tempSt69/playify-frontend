@@ -9,13 +9,17 @@ import {
   faMagnifyingGlass,
   faGear,
   faMoon,
-  faSun,
+  faSun
 } from '@fortawesome/free-solid-svg-icons';
 import { ThemeContext } from './contexts/ThemeContext';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import useThemeContext from './hooks/useThemeContext';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { AddSong } from './pages/AddSong';
+import { ReactKeycloakProvider } from '@react-keycloak/web';
+import keycloak from './auth/Keycloak';
+import { PrivateRoute } from './utils/PrivateRoute';
+import React from 'react';
 
 library.add(
   faPlay,
@@ -32,12 +36,16 @@ library.add(
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Main />,
+    element: <Main />
   },
   {
     path: '/add',
-    element: <AddSong />,
-  },
+    element: (
+      <PrivateRoute>
+        <AddSong />
+      </PrivateRoute>
+    )
+  }
 ]);
 
 function App() {
@@ -47,11 +55,29 @@ function App() {
 
   return (
     <>
-      <ThemeContext.Provider value={{ theme, switchTheme: switchTheme }}>
-        <QueryClientProvider client={queryClient}>
-          <RouterProvider router={router} />
-        </QueryClientProvider>
-      </ThemeContext.Provider>
+      <ReactKeycloakProvider
+        authClient={keycloak}
+        initOptions={{
+          onLoad: 'check-sso'
+        }}
+        onTokens={(tokens) => {
+          if (tokens && tokens.token && tokens.refreshToken) {
+            localStorage.setItem('token', tokens.token);
+            localStorage.setItem('refresh', tokens.refreshToken);
+          } else {
+            localStorage.removeItem('token');
+            localStorage.removeItem('refresh');
+          }
+        }}
+      >
+        <React.StrictMode>
+          <ThemeContext.Provider value={{ theme, switchTheme: switchTheme }}>
+            <QueryClientProvider client={queryClient}>
+              <RouterProvider router={router} />
+            </QueryClientProvider>
+          </ThemeContext.Provider>
+        </React.StrictMode>
+      </ReactKeycloakProvider>
     </>
   );
 }

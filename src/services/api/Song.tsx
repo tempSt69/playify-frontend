@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { Song } from '../types/Song';
+import { axiosAdmin } from '../../utils/AxiosUtils';
 
 const prefix = 'song';
 
@@ -51,7 +52,10 @@ export const insertSong = async (
     method: 'post',
     url: `${import.meta.env.VITE_API_URL}${prefix}`,
     data: formData,
-    headers: { 'Content-Type': 'multipart/form-data' },
+    headers: {
+      'Content-Type': 'multipart/form-data',
+      Authorization: `Bearer ${localStorage.getItem('token')}`
+    }
   });
   if (response.status > 300) {
     throw new Error('Error posting data');
