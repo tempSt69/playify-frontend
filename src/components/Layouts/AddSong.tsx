@@ -15,7 +15,7 @@ type AddSongLayout = {
   artistList: Artist[];
 };
 
-type SongFormValues = {
+export type SongFormValues = {
   name: string;
   artist: string;
   duration: number;

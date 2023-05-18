@@ -1,13 +1,14 @@
-import { UseFormRegister, FieldValues } from 'react-hook-form';
+import { UseFormRegister } from 'react-hook-form';
+import { SongFormValues } from '../../Layouts/AddSong';
 
 type TextInput = {
   type?: string;
-  name?: string;
+  name?: 'file' | 'name' | 'artist' | 'duration';
   placeholder?: string;
   icon?: any;
   children?: JSX.Element;
   onChange?: React.ChangeEventHandler;
-  register?: UseFormRegister<FieldValues>;
+  register?: UseFormRegister<SongFormValues>;
 };
 export const TextInput: React.FC<TextInput> = ({
   type = 'text',

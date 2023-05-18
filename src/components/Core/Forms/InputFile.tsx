@@ -1,10 +1,11 @@
 import { UseFormRegister, FieldValues } from 'react-hook-form';
 import classNames from 'classnames';
+import { SongFormValues } from '../../Layouts/AddSong';
 
 type TypeInputFile = {
   onChange?: React.ChangeEventHandler;
-  register?: UseFormRegister<FieldValues>;
-  name?: string;
+  register?: UseFormRegister<SongFormValues>;
+  name?: 'file' | 'name' | 'artist' | 'duration';
 };
 export const InputFile: React.FC<TypeInputFile> = ({
   onChange,

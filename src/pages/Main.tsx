@@ -30,9 +30,6 @@ export const Main = () => {
     play();
   };
   const progress = () => {
-    console.log('manual setprogress', audioRef.current!.currentTime);
-    console.log('setprogress', audioRef.current!.currentTime);
-
     setProgress(
       audioRef && audioRef.current ? audioRef.current.currentTime : 0
     );
@@ -68,6 +65,10 @@ export const Main = () => {
       if (parseInt(progressBarRef.current.value) / song.duration === 1) next();
     }
   }, [timeProgress]);
+
+  useEffect(() => {
+    if (songsList && songsList.length > 0 && !song) setSong(songsList[0]);
+  }, [songsList]);
 
   return (
     <MusicPlayerContext.Provider

@@ -1,5 +1,5 @@
 import { RefObject } from 'react';
-import { formatTime } from '../../../utils/formatTime';
+import { formatTime } from '../../../utils/FormatTime';
 import { Span } from '../../Core/Texts/Span';
 
 type TypeProgressBar = {

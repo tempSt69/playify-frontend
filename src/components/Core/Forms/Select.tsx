@@ -1,10 +1,11 @@
 import { UseFormRegister, FieldValues } from 'react-hook-form';
+import { SongFormValues } from '../../Layouts/AddSong';
 
 type TypeSelect = {
   children: JSX.Element;
-  name?: string;
+  name?: 'file' | 'name' | 'artist' | 'duration';
   onChange?: React.ChangeEventHandler;
-  register?: UseFormRegister<FieldValues>;
+  register?: UseFormRegister<SongFormValues>;
 };
 export const Select: React.FC<TypeSelect> = ({
   children,

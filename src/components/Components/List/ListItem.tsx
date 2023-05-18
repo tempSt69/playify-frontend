@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { MusicPlayerContext } from '../../../contexts/MusicPlayerContext';
 import { Song } from '../../../services/types/Song';
-import { formatTime } from '../../../utils/formatTime';
+import { formatTime } from '../../../utils/FormatTime';
 import { ButtonPlayer } from '../../Core/Buttons/ButtonPlayer';
 import { Head3 } from '../../Core/Texts/Head3';
 import { Span } from '../../Core/Texts/Span';
